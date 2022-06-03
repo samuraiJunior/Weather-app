@@ -1,0 +1,198 @@
+%flex{
+  display: flex;
+  align-items: center;
+}
+
+@mixin fonts($fstyle,$fw,$fsize,$lh,$color){
+  font-style: $fstyle;
+font-weight: $fw;
+font-size: $fsize;
+line-height:$lh;
+color: $color;
+}
+  
+
+  
+
+.App {
+  color: #FFFFFF;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+ // padding-bottom: 150px;
+  position: relative;
+  p{
+    font-size: 25.6px;
+  }
+  h1{
+    font-size: 96px;   
+    }
+    @media (max-width:599px){
+      h1{
+        font-size:71px;
+      }
+      p{
+        font-size: 20.6px;
+      }
+  }
+  
+  &::before{
+    content: "";
+    background: url("../public/sunset.jpg") no-repeat center center/cover;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -2;
+  }
+  &::after{
+      content:"";
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      z-index: -1;
+     background-color: rgba(0, 0, 0, 0.4);
+     
+  }
+  
+  main{
+    padding: 25px;
+    max-width: 700px;
+    height: 100%;
+    margin:auto;
+    position: relative;
+
+    h3{
+      font-size: 23px;
+      display: flex;
+      justify-content: center;
+      letter-spacing: 5px;
+    }
+  }
+}
+.searchBlock{
+  margin: 0 0 75px;
+  text-align: center;
+  padding-top: 40px;
+  position: relative;
+  input{
+    width: 100%;
+    text-align: center;
+    appearance: none;
+    border: none;
+    border-radius: 16px ;
+    margin-top: -25px;
+    box-shadow:  0 5px rgba(0,0,0,0.2);
+    font-size: 20px;
+    background:transparent;
+    color:#FFFFFF;
+  }
+  img{
+    position: absolute;
+    right:2%;
+    vertical-align: baseline;
+    cursor: pointer;
+  }
+  span{
+    color: rgb(255, 210, 210);
+    
+  }
+}
+.location-box{
+  margin-bottom: 27px;
+  &>*+*{
+    margin-top: 27px;
+  }
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+
+
+.location-box__description{
+  display: flex;
+  align-items: center;
+    img{
+      width: 70px;
+      height: 70px;
+    }
+    p{
+      margin-right: 15px;
+    }
+}
+
+.weather-box{
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+text-align: center;
+width: 100%;
+padding: 10px;
+background-color: rgba(255, 255, 255, 0.2);
+border-radius: 12px;
+flex-wrap: wrap;
+@media (max-width:450px){
+  &{
+    justify-content: center;
+  row-gap: 20px;
+  column-gap: 30px;
+  flex-direction: column;
+  }
+}
+}
+
+
+.ThisDayInfoItem{
+  @extend %flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+  @media (max-width:450px){
+  flex-direction: column-reverse;
+  }
+  &>*+*{
+      margin-top: 20px;
+      @media (max-width:450px){
+      margin-top: 0;
+        margin-bottom: 20px;
+      }
+  }
+  &+&{
+      margin-left: 24px;
+    @media (max-width:450px){
+      margin-left: 0;
+    }
+  }
+  .ThisDayInfoItem__imgWrapper{
+      width: 38px;
+      height: 38px;
+      background: #FFFFFF;
+      box-shadow: 1px 4px 10px -1px rgba(71, 147, 255, 0.2);
+      border-radius: 50%;
+      @extend %flex;
+      justify-content: center;
+      img{
+          position: relative;
+          z-index: 1;
+      }
+  }
+  .ThisDayInfoItem__title{
+      font-weight: 400;
+    }
+  .ThisDayInfoItem__text{
+      font-weight: 700;
+  }
+  
+}
+
